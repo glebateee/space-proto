@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package inventory;
+
+option go_package = "glebateee.inv.v1;invv1";
+
+service Inventory{
+    rpc AddProduct(AddProductRequest) returns (AddProductResponse);
+    rpc GetProduct(GetProductRequest) returns (GetProductResponse);
+}
+
+message AddProductRequest{
+    string name = 1;
+    int64 price = 2; 
+}
+
+message AddProductResponse{
+    int64 id = 1;
+}
+
+message GetProductRequest{
+    int64 id = 1;
+}
+
+message GetProductResponse{
+    string name = 1;
+    int64 price = 2;
+}
